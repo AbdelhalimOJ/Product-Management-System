@@ -41,7 +41,7 @@ if(localStorage.product != null)
 }
 else{dataPro=[];}
 
-submit.onclick = function()
+function CreateProduct()
 {
     let newPro = {
         title:title.value.toLowerCase(),
