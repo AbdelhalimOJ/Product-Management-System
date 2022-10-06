@@ -9,13 +9,16 @@
 </head>
 <body>
     <div class="crud">
-
+        
+        <!-- Head -->
+        
         <div class="head">
             <h2>cruds</h2>
             <p>PRODUCT MANAGEMENT SYSTEM</p>
         </div>
 
-
+        <!-- User Inputs -->
+        
         <div class="inputs">
             <input placeholder="title" type="text" id="title">
             <div class="price">
@@ -29,7 +32,9 @@
             <input placeholder="category" type="text" id="category">
             <button id="submit">Create</button>
         </div>
-
+        
+         <!-- Search -->
+        
         <div class="outputs">
             <div class="searchBlock">
                 <input onkeyup="searchData(this.value)" type="text" id="search" placeholder="Search">
@@ -38,9 +43,12 @@
                     <button onclick="getSearchMode(this.id)" id="searchCategory"> Search By Category</button>
                 </div>
             </div>
-<!-- Table of items -->
-            <div id="warning"></div>
-            <div id="deleteAll"></div>
+            
+            <!-- Table of products -->
+            
+            <div id="warning"> <!-- Warning message is created here -->  </div>
+            <div id="deleteAll">  <!-- Delete all buttong is created here -->  </div>
+            
             <table> <h3 style="text-align: center; margin-top:20px; text-transform: uppercase; color:#16a085;">Table of products</h3>
                 <tr>
                     <th>id</th>
@@ -56,20 +64,8 @@
                 </tr>
 
                 <tbody id="tbody">
-                    <!--
-                    <tr>
-                        <td>1</td>
-                        <td>samsung</td>
-                        <td>2000</td>
-                        <td>100</td>
-                        <td>100</td>
-                        <td>100</td>
-                        <td>2100</td>
-                        <td>phone</td>
-                        <td><button id="update">update</button></td>
-                        <td><button id="delete">delete</button></td>
-                    </tr>
-                    -->
+                    
+             <!-- Here is where the table of products is created :) -->
                     
                 </tbody>
             </table>
