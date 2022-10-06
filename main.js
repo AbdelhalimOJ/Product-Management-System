@@ -53,7 +53,7 @@ function CreateProduct()
         count:count.value,
         category:category.value.toLowerCase()
     }
-// count & create mode
+// --- count & create mode
 
 if(title.value != '' 
 && price.value !='' 
@@ -115,6 +115,25 @@ function clearData()
     category.value = '';
 }
 
+// --- Writing the table
+
+function writeTable()
+        {
+            table += `
+            <tr>
+                <td>${i+1}</td>
+                <td>${dataPro[i].title}</td>
+                <td>${dataPro[i].price}</td>
+                <td>${dataPro[i].taxes}</td>
+                <td>${dataPro[i].ads}</td>
+                <td>${dataPro[i].discount}</td>
+                <td>${dataPro[i].total}</td>
+                <td>${dataPro[i].category}</td>
+                <td><button onclick="updateData(${i})" id="update">update</button></td>
+                <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
+            </tr>`;
+          }
+
 // read
 
 function showData()
@@ -122,21 +141,7 @@ function showData()
     let table = '';
     for(let i = 0; i < dataPro.length; i++)
     {
-        table += `
-                <tr>
-                    <td>${i+1}</td>
-                    <td>${dataPro[i].title}</td>
-                    <td>${dataPro[i].price}</td>
-                    <td>${dataPro[i].taxes}</td>
-                    <td>${dataPro[i].ads}</td>
-                    <td>${dataPro[i].discount}</td>
-                    <td>${dataPro[i].total}</td>
-                    <td>${dataPro[i].category}</td>
-                    <td><button onclick="updateData(${i})" id="update">update</button></td>
-                    <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
-                </tr>
-        `;
-        
+        writeTable();
     }
 
     document.getElementById('tbody').innerHTML = table;
@@ -151,8 +156,6 @@ function showData()
 }
 
 showData()
-
-
 
 // delete
 
@@ -190,7 +193,6 @@ function updateData(para)
     scroll({top:0,behavior:'smooth'});
 }
 
-
 // search
 
 let searchMode = 'title';
@@ -213,32 +215,11 @@ function searchData(value)
 {   let table ='';
     for(let i = 0; i < dataPro.length; i++) {
 
-        function writeTable(){
-            table += `
-            <tr>
-                <td>${i+1}</td>
-                <td>${dataPro[i].title}</td>
-                <td>${dataPro[i].price}</td>
-                <td>${dataPro[i].taxes}</td>
-                <td>${dataPro[i].ads}</td>
-                <td>${dataPro[i].discount}</td>
-                <td>${dataPro[i].total}</td>
-                <td>${dataPro[i].category}</td>
-                <td><button onclick="updateData(${i})" id="update">update</button></td>
-                <td><button onclick="deleteData(${i})" id="delete">delete</button></td>
-            </tr>`;
-            }
-
         if(searchMode == 'title')
         {if(dataPro[i].title.includes(value.toLowerCase())){writeTable()}}
 
         else
         {if(dataPro[i].category.includes(value.toLowerCase())){writeTable()}}
     }
-
-    
-
     document.getElementById('tbody').innerHTML = table;
-
 }
-
